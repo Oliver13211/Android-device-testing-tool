@@ -4,34 +4,15 @@
 一个测试安卓设备的工具
 
 #### 软件架构
-软件架构说明
+使用python语言进行编程，使用pyqt6模块开发图形界面，使用python标准库的os模块里的system等功能向设备发送指令，开发完成后，使用pyinstaller等python打包工具将代码文件打包成exe。
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+下载软件后，打开存放软件的目录，找到“main.exe”，双击打开，若提示报错，请像我反馈。
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1.  本软件暂时只有windows系统，Mac、Linux用户请等一等，给我点时间！
+2.  软件运行速度可能较慢（用过python的都懂【手动狗头】）
+3.  软件遇到问题，请发邮件到此邮箱：2995306790@qq.com
