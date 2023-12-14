@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.6.33829.357
+VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Android-test-tool-for-c_sharp", "Android-test-tool-for-c_sharp\Android-test-tool-for-c_sharp.csproj", "{712D21D8-9D0A-46BB-8541-D710597ECD84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Android-test-tool-for-c_sharp", "Android-test-tool-for-c_sharp.csproj", "{00A01AEB-1C8D-4A7B-8C2C-C35DF8A6084C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{712D21D8-9D0A-46BB-8541-D710597ECD84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{712D21D8-9D0A-46BB-8541-D710597ECD84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{712D21D8-9D0A-46BB-8541-D710597ECD84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{712D21D8-9D0A-46BB-8541-D710597ECD84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00A01AEB-1C8D-4A7B-8C2C-C35DF8A6084C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A01AEB-1C8D-4A7B-8C2C-C35DF8A6084C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A01AEB-1C8D-4A7B-8C2C-C35DF8A6084C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A01AEB-1C8D-4A7B-8C2C-C35DF8A6084C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1E137D47-D49F-4ECE-8D7F-BD7E9732BA17}
+		SolutionGuid = {AFBAED80-DFA8-4351-A67C-CE81224AE38E}
 	EndGlobalSection
 EndGlobal
