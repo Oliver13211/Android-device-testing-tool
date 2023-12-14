@@ -11,16 +11,13 @@ public partial class Form1 : Form
 {
     Form2 form2;
     string d;
+    Error error;
 
     public Form1()
     {
         InitializeComponent();
         form2 = new Form2();
-    }
-
-    private void Form1_Load(object sender, EventArgs e)
-    {
-
+        error = new Error();
     }
 
     private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -74,15 +71,15 @@ public partial class Form1 : Form
         string cmd = Application.StartupPath + "\\adb_fastboot\\adb.exe";
         //string cmd = "dir";
         Process p = new Process();
-        p.StartInfo.FileName = cmd;           //设定程序名  
-        p.StartInfo.Arguments = arguments;    //设定程式执行參數  
-        p.StartInfo.UseShellExecute = false;        //关闭Shell的使用  
-        p.StartInfo.RedirectStandardInput = true;   //重定向标准输入  
-        p.StartInfo.RedirectStandardOutput = true;  //重定向标准输出  
-        p.StartInfo.RedirectStandardError = true;   //重定向错误输出  
-        p.StartInfo.CreateNoWindow = true;          //设置不显示窗口  
-        p.StartInfo.StandardOutputEncoding = Encoding.UTF8; // 指定输出流编码为 UTF-8
-        p.StartInfo.StandardErrorEncoding = Encoding.UTF8; // 指定错误输出流编码为 UTF-8
+        p.StartInfo.FileName = cmd;
+        p.StartInfo.Arguments = arguments;
+        p.StartInfo.UseShellExecute = false;
+        p.StartInfo.RedirectStandardInput = true;
+        p.StartInfo.RedirectStandardOutput = true;
+        p.StartInfo.RedirectStandardError = true;
+        p.StartInfo.CreateNoWindow = true;
+        p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
+        p.StartInfo.StandardErrorEncoding = Encoding.UTF8;
         p.OutputDataReceived += dataReceivedEventHandler;
         p.ErrorDataReceived += errorDataReceivedEventHandler;
         p.Start();
@@ -112,10 +109,13 @@ public partial class Form1 : Form
                 }
                 else
                 {
-                    var sl = Task.Run(() =>
+                    if ((int)numericUpDown1.Value == 1)
                     {
-                        Task.Delay(100000);
-                    });
+                        var sl = Task.Run(() =>
+                        {
+                            Task.Delay(100000);
+                        });
+                    }
                 }
             }
         }
@@ -126,34 +126,35 @@ public partial class Form1 : Form
         statusStrip1.Invoke(showUi2);
     }
 
-    
     private void toolStripButton1_Click(object sender, EventArgs e)
     {
         form2.ShowDialog();
     }
 
-    private void textBox1_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label1_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void toolStripButton2_Click(object sender, EventArgs e)
     {
-        FileStream fs = File.Create(Application.StartupPath + "log.txt");
-        try
+        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
         {
-            byte[] texts = new UTF8Encoding(true).GetBytes(textBox1.Text);
-            fs.WriteAsync(texts, 0, texts.Length);
+            FileStream fs = File.Create(saveFileDialog1.FileName);
+            try
+            {
+                byte[] texts = new UTF8Encoding(true).GetBytes(textBox1.Text);
+                fs.WriteAsync(texts, 0, texts.Length);
+            }
+            catch (Exception)
+            {
+
+            }
+            fs.Close();
         }
-        catch (Exception)
+        else
         {
-            throw;
+            error.ShowDialog();
         }
-        fs.Close();
+    }
+
+    private async void button2_Click(object sender, EventArgs e)
+    {
+        await AsyncRunADB("shell cat /proc/cpuinfo", dataReceived, errorReceived);
     }
 }
