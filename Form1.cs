@@ -74,6 +74,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
 
@@ -172,6 +173,7 @@ public partial class Form1 : Form
         statusStrip1.Invoke(showUi);
         for (int i = 1; i <= (int)numericUpDown1.Value; i++)
         {
+            int j = 0;
             await AsyncRunADB("reboot", dataReceived, errorReceived);
             while (true)
             {
@@ -182,12 +184,27 @@ public partial class Form1 : Form
                 }
                 else
                 {
-                    if ((int)numericUpDown1.Value == 1)
-                    {
-                        var sl = Task.Run(() =>
+                    if (numericUpDown1.Value != 1) {
+                        if (j == 10)
                         {
-                            Task.Delay(100000);
-                        });
+                            Action action = () =>
+                            {
+                                textBox1.Text = textBox1.Text + "设备脱机时间过长，自动停止运行任务\r\n";
+                            };
+                            textBox1.Invoke(action);
+                            break;
+                        }
+                        else
+                        {
+                            var sl = Task.Run(() =>
+                            {
+                                Task.Delay(20000);
+                            });
+                        }
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
             }
@@ -229,5 +246,15 @@ public partial class Form1 : Form
     private async void button2_Click(object sender, EventArgs e)
     {
         await AsyncRunADB("shell cat /proc/cpuinfo", dataReceived, errorReceived);
+    }
+
+    private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        foreach(var process in Process.GetProcessesByName("adb.exe"))
+        {
+            process.Kill();
+            process.WaitForExit();
+        }
+        Close();
     }
 }
