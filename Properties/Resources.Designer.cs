@@ -103,6 +103,16 @@ namespace Android_test_tool_for_c_sharp.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 刀 {
+            get {
+                object obj = ResourceManager.GetObject("刀", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 工具 {
             get {
                 object obj = ResourceManager.GetObject("工具", resourceCulture);

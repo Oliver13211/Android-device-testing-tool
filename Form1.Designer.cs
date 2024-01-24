@@ -18,6 +18,7 @@
             toolStrip1 = new ToolStrip();
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
+            toolStripButton3 = new ToolStripButton();
             label1 = new Label();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
@@ -50,7 +51,7 @@
             numericUpDown1.Margin = new Padding(5, 4, 5, 4);
             numericUpDown1.Maximum = new decimal(new int[] { 21, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(83, 33);
+            numericUpDown1.Size = new Size(83, 30);
             numericUpDown1.TabIndex = 1;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
@@ -75,7 +76,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(0, 0, 3, 0);
@@ -102,6 +103,16 @@
             toolStripButton2.Size = new Size(34, 28);
             toolStripButton2.Text = "导出输出内容";
             toolStripButton2.Click += toolStripButton2_Click;
+            // 
+            // toolStripButton3
+            // 
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = Properties.Resources.刀;
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(34, 28);
+            toolStripButton3.Text = "杀死adb服务";
+            toolStripButton3.Click += toolStripButton3_Click;
             // 
             // label1
             // 
@@ -239,5 +250,6 @@
         private GroupBox groupBox3;
         private Button button2;
         private SaveFileDialog saveFileDialog1;
+        private ToolStripButton toolStripButton3;
     }
 }

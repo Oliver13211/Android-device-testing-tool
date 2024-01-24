@@ -184,7 +184,8 @@ public partial class Form1 : Form
                 }
                 else
                 {
-                    if (numericUpDown1.Value != 1) {
+                    if (numericUpDown1.Value != 1)
+                    {
                         if (j == 10)
                         {
                             Action action = () =>
@@ -248,13 +249,8 @@ public partial class Form1 : Form
         await AsyncRunADB("shell cat /proc/cpuinfo", dataReceived, errorReceived);
     }
 
-    private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+    private async void toolStripButton3_Click(object sender, EventArgs e)
     {
-        foreach(var process in Process.GetProcessesByName("adb.exe"))
-        {
-            process.Kill();
-            process.WaitForExit();
-        }
-        Close();
+        await AsyncRunADB("kill-server", getdata, geterror);
     }
 }
