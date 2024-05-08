@@ -13,8 +13,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             button1 = new Button();
             numericUpDown1 = new NumericUpDown();
-            statusStrip1 = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
@@ -26,17 +24,24 @@
             groupBox3 = new GroupBox();
             button2 = new Button();
             saveFileDialog1 = new SaveFileDialog();
+            groupBox4 = new GroupBox();
+            label2 = new Label();
+            textBox2 = new TextBox();
+            groupBox5 = new GroupBox();
+            label3 = new Label();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(63, 79);
+            button1.Location = new Point(68, 154);
             button1.Margin = new Padding(5, 4, 5, 4);
             button1.Name = "button1";
             button1.Size = new Size(168, 51);
@@ -47,7 +52,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(178, 38);
+            numericUpDown1.Location = new Point(179, 60);
             numericUpDown1.Margin = new Padding(5, 4, 5, 4);
             numericUpDown1.Maximum = new decimal(new int[] { 21, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
@@ -56,23 +61,6 @@
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
-            // statusStrip1
-            // 
-            statusStrip1.ImageScalingSize = new Size(24, 24);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 582);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Padding = new Padding(2, 0, 22, 0);
-            statusStrip1.Size = new Size(1351, 31);
-            statusStrip1.TabIndex = 1;
-            statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(82, 24);
-            toolStripStatusLabel1.Text = "准备就绪";
-            // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
@@ -80,7 +68,7 @@
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(0, 0, 3, 0);
-            toolStrip1.Size = new Size(1351, 33);
+            toolStrip1.Size = new Size(1504, 33);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -118,7 +106,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(24, 38);
+            label1.Location = new Point(24, 60);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(134, 31);
@@ -127,23 +115,23 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(9, 31);
+            textBox1.Location = new Point(10, 31);
             textBox1.Margin = new Padding(5, 4, 5, 4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(684, 497);
+            textBox1.Size = new Size(793, 627);
             textBox1.TabIndex = 2;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(textBox1);
-            groupBox1.Location = new Point(646, 40);
+            groupBox1.Location = new Point(649, 40);
             groupBox1.Margin = new Padding(5, 4, 5, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(5, 4, 5, 4);
-            groupBox1.Size = new Size(706, 538);
+            groupBox1.Size = new Size(813, 666);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "输出内容";
@@ -157,7 +145,7 @@
             groupBox2.Margin = new Padding(5, 4, 5, 4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(5, 4, 5, 4);
-            groupBox2.Size = new Size(314, 141);
+            groupBox2.Size = new Size(314, 288);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             groupBox2.Text = "重启";
@@ -167,14 +155,14 @@
             groupBox3.Controls.Add(button2);
             groupBox3.Location = new Point(341, 40);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(300, 141);
+            groupBox3.Size = new Size(300, 288);
             groupBox3.TabIndex = 7;
             groupBox3.TabStop = false;
             groupBox3.Text = "输出CPU信息";
             // 
             // button2
             // 
-            button2.Location = new Point(77, 53);
+            button2.Location = new Point(77, 130);
             button2.Name = "button2";
             button2.Size = new Size(153, 51);
             button2.TabIndex = 0;
@@ -187,16 +175,80 @@
             saveFileDialog1.Filter = "TXT文本文件|*.txt";
             saveFileDialog1.Title = "选择保存位置";
             // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(label2);
+            groupBox4.Controls.Add(textBox2);
+            groupBox4.Location = new Point(19, 335);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(622, 131);
+            groupBox4.TabIndex = 8;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "自定义运行adb命令（无需添加adb）";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(7, 75);
+            label2.Margin = new Padding(5, 0, 5, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(613, 31);
+            label2.TabIndex = 1;
+            label2.Text = "重要提示：无需添加adb，直接输入shell暂时无法使用！";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(24, 42);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(528, 30);
+            textBox2.TabIndex = 0;
+            textBox2.KeyDown += textBox2_KeyDown;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(label3);
+            groupBox5.Controls.Add(button3);
+            groupBox5.Location = new Point(19, 472);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(622, 234);
+            groupBox5.TabIndex = 9;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "输出log";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(63, 167);
+            label3.Margin = new Padding(5, 0, 5, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(489, 31);
+            label3.TabIndex = 5;
+            label3.Text = "重要提示：停止请按工具栏上的杀死adb服务";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(208, 80);
+            button3.Margin = new Padding(5, 4, 5, 4);
+            button3.Name = "button3";
+            button3.Size = new Size(170, 55);
+            button3.TabIndex = 4;
+            button3.Text = "开始输出";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1351, 613);
+            ClientSize = new Size(1504, 741);
+            Controls.Add(groupBox5);
+            Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(toolStrip1);
-            Controls.Add(statusStrip1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
@@ -204,8 +256,6 @@
             Name = "Form1";
             Text = "测试工具";
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             groupBox1.ResumeLayout(false);
@@ -213,6 +263,10 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -220,8 +274,6 @@
         #endregion
         private NumericUpDown numericUpDown1;
         private Button button1;
-        private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -251,5 +303,11 @@
         private Button button2;
         private SaveFileDialog saveFileDialog1;
         private ToolStripButton toolStripButton3;
+        private GroupBox groupBox4;
+        private TextBox textBox2;
+        private GroupBox groupBox5;
+        private Label label2;
+        private Button button3;
+        private Label label3;
     }
 }

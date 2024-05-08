@@ -77,6 +77,7 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace Android_test_tool_for_c_sharp;
@@ -112,7 +113,8 @@ public partial class Form1 : Form
         {
             Action<string> showUi = (b) =>
             {
-                textBox1.Text += b + "\r\n";
+                textBox1.AppendText(b + "\r\n");
+                textBox1.ScrollToCaret();
             };
             textBox1.Invoke(showUi, new object[] { outLine.Data });
         }
@@ -134,7 +136,9 @@ public partial class Form1 : Form
         {
             Action<string> showUi = (b) =>
             {
-                textBox1.Text += b + "\r\n";
+                textBox1.AppendText(b + "\r\n");
+                textBox1.ScrollToCaret();
+
             };
             textBox1.Invoke(showUi, new object[] { outLine.Data });
         }
@@ -166,11 +170,6 @@ public partial class Form1 : Form
 
     private async void button1_Click(object sender, EventArgs e)
     {
-        Action showUi = () =>
-        {
-            statusStrip1.Text = "正在执行操作";
-        };
-        statusStrip1.Invoke(showUi);
         for (int i = 1; i <= (int)numericUpDown1.Value; i++)
         {
             int j = 0;
@@ -210,11 +209,6 @@ public partial class Form1 : Form
                 }
             }
         }
-        Action showUi2 = () =>
-        {
-            statusStrip1.Text = "准备就绪";
-        };
-        statusStrip1.Invoke(showUi2);
     }
 
     private void toolStripButton1_Click(object sender, EventArgs e)
@@ -252,5 +246,18 @@ public partial class Form1 : Form
     private async void toolStripButton3_Click(object sender, EventArgs e)
     {
         await AsyncRunADB("kill-server", getdata, geterror);
+    }
+
+    private async void textBox2_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
+        {
+            await AsyncRunADB(textBox2.Text, dataReceived, errorReceived);
+        }
+    }
+
+    private async void button3_Click(object sender, EventArgs e)
+    {
+        await AsyncRunADB("logcat", dataReceived, errorReceived);
     }
 }

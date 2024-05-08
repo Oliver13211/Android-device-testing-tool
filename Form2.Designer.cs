@@ -110,7 +110,7 @@ namespace Android_test_tool_for_c_sharp
             label3.Name = "label3";
             label3.Size = new Size(189, 24);
             label3.TabIndex = 0;
-            label3.Text = "安卓设备测试工具v1.2";
+            label3.Text = "安卓设备测试工具v1.3";
             // 
             // groupBox3
             // 
@@ -133,7 +133,7 @@ namespace Android_test_tool_for_c_sharp
             webView21.Margin = new Padding(5, 4, 5, 4);
             webView21.Name = "webView21";
             webView21.Size = new Size(1040, 714);
-            webView21.Source = new Uri(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "help.html", UriKind.Absolute);
+            webView21.Source = new Uri(System.Windows.Forms.Application.StartupPath + "help.html", UriKind.Absolute);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
